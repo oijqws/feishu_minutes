@@ -185,8 +185,8 @@ class FeishuDownloader:
             os.makedirs(f'{save_path}/{file_name}')
 
         # 写入字幕文件
-        with open(f'{save_path}/{file_name}/{subtitle_name}.{self.subtitle_type}', 'w', encoding='utf-8') as f:
-            f.write(resp.text)
+        with open(f'{save_path}/{file_name}/{subtitle_name}.{self.subtitle_type}', 'wb') as f:
+            f.write(resp.content)
         
         # 如果妙记来自会议，则记录会议起止时间
         if minutes['object_type'] == 0:
